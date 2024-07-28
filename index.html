@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Tailwindcss</title>
 
+    <!-- GOOGLE MATERIAL ICONS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
     <!-- TAILWINDCSS -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./output.css">
 
     <!-- SCRIPT JS -->
      <script src="./script.js" defer></script>
 
 </head>
 <body>
-
+    <!-- NAVBAR -->
+     <nav class="p-3 bg-white flex justify-between items-center">
+        <a href="/" id="logo" class="flex gap-2 items-center">
+            <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo">
+            <span class="text-lg font-medium font-display">ToDesktop</span>
+        </a>
+        <button class="p-2" onclick="HandleMenu()">
+            <span class="material-symbols-rounded text-gray-600">
+                menu
+            </span>
+        </button>
+     </nav>
 </body>
 </html>
