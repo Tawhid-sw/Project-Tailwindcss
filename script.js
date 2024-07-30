@@ -1,4 +1,5 @@
 //NAVBAR MENU
+const NavDialouge = document.getElementById('nav-dialoge');
 HandleMenu = () =>{
-    alert("Hello World")
+    NavDialouge.classList.toggle('hidden')
 }
