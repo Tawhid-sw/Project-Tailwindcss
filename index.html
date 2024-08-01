@@ -1,128 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Tailwindcss</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Tailwindcss</title>
 
-    <!-- GOOGLE MATERIAL ICONS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <!-- GOOGLE MATERIAL ICONS -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-    <!-- TAILWINDCSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
+  <!-- TAILWINDCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#3238f2'
-        },
+            primary: "#3238f2",
+          },
           fontFamily: {
-            'display' : 'Quicksand',
-            'heading' : ["Inter", 'sans-serif'],
+            display: "Quicksand",
+            heading: ["Inter", "sans-serif"],
+          },
         },
-        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+        h1,
+        h2,
+        h3 {
+          @apply text-gray-800 font-medium;
+        }
+        .allGrops{
+          @apply flex mt-10 gap-4 w-screen;
+        }
       }
-    }
-    </script>
-    <style type="text/tailwindcss">
-      @layer utilities{
-        h1 , h2 , h3{
-         @apply text-gray-800 font-medium
-      }
-    }
     </style>
 
-    <!-- GLOBAL CSS -->
-     <link rel="stylesheet" href="./global.css">
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="./global.css" />
 
-    <!-- SCRIPT JS -->
-     <script src="./script.js" defer></script>
-
+  <!-- SCRIPT JS -->
+  <script src="./script.js" defer></script>
 </head>
+
 <body class="font-display">
-    <!-- NAVBAR -->
-     <nav class="p-3 bg-white flex justify-between items-center">
-        <a href="/" id="logo" class="flex gap-2 items-center flex-1">
-            <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo">
-            <span class="text-lg font-bold font-display">ToDesktop</span>
+  <!-- NAVBAR -->
+  <nav class="p-3 bg-white flex justify-between items-center">
+    <a href="/" id="logo" class="flex gap-2 items-center flex-1">
+      <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo" />
+      <span class="text-lg font-bold font-display">ToDesktop</span>
+    </a>
+    <div id="nav-menu" class="hidden lg:flex items-center gap-12 font-bold">
+      <a href="#" class="hover:text-primary">Pricing</a>
+      <a href="#" class="hover:text-primary">Docs</a>
+      <a href="#" class="hover:text-primary">ChangeLog</a>
+      <a href="#" class="hover:text-primary">Blogs</a>
+      <a href="#" class="hover:text-primary">Login</a>
+    </div>
+    <div class="hidden lg:flex flex-1 justify-end">
+      <button
+        class="flex items-center gap-2 border border-gray-400 hover:border-gray-600 px-6 py-2 rounded-lg font-medium">
+        <img src="./assets/asset 1.svg" />
+        <span>Electron Developers</span>
+        <span class="material-symbols-rounded">arrow_right_alt</span>
+      </button>
+    </div>
+    <button class="p-2 lg:hidden" onclick="HandleMenu()">
+      <span class="material-symbols-rounded text-gray-600"> menu </span>
+    </button>
+
+    <div id="nav-dialoge" class="fixed inset-0 z-10 bg-white p-3 hidden lg:hidden">
+      <div id="nav-bar" class="flex items-center justify-between">
+        <a href="/" id="logo" class="flex gap-2 items-center">
+          <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo" />
+          <span class="text-lg font-bold font-display">ToDesktop</span>
         </a>
-        <div id="nav-menu" class="hidden lg:flex items-center gap-12 font-bold">
-            <a href="#" class="hover:text-primary">Pricing</a>
-            <a href="#" class="hover:text-primary">Docs</a>
-            <a href="#" class="hover:text-primary">ChangeLog</a>
-            <a href="#" class="hover:text-primary">Blogs</a>
-            <a href="#" class="hover:text-primary">Login</a>
-        </div>
-        <div class="hidden lg:flex flex-1 justify-end">
-          <button class=" flex items-center gap-2 border border-gray-400 hover:border-gray-600 px-6 py-2 rounded-lg font-medium">
-            <img src="./assets/asset 1.svg">
-            <span>Electron Developers</span>
-            <span class="material-symbols-rounded">arrow_right_alt</span>
-        </button>
-        </div>
         <button class="p-2 lg:hidden" onclick="HandleMenu()">
-            <span class="material-symbols-rounded text-gray-600">
-                menu
-            </span>
+          <span class="material-symbols-rounded text-gray-600"> close </span>
         </button>
+      </div>
+      <div class="navList font-bold mt-6">
+        <a href="#" class="hover:text-primary block m-3 py-3">Pricing</a>
+        <a href="#" class="hover:text-primary block m-3 py-3">Docs</a>
+        <a href="#" class="hover:text-primary block m-3 py-3">ChangeLog</a>
+        <a href="#" class="hover:text-primary block m-3 py-3">Blogs</a>
+        <a href="#" class="hover:text-primary block m-3 py-3">Login</a>
 
-        <div id="nav-dialoge" class="fixed inset-0 z-10 bg-white p-3 hidden lg:hidden">
-          <div id="nav-bar" class="flex items-center justify-between">
-            <a href="/" id="logo" class="flex gap-2 items-center">
-              <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo">
-              <span class="text-lg font-bold font-display">ToDesktop</span>
-          </a>
-          <button class="p-2 lg:hidden" onclick="HandleMenu()">
-            <span class="material-symbols-rounded text-gray-600">
-                close
-            </span>
+        <span class="h-[1px] bg-gray-700"></span>
+
+        <button class="flex w-full mt-6 items-center gap-2 px-6 py-4 rounded-lg font-bold hover:text-gray-500">
+          <img src="./assets/asset 1.svg" />
+          <span>Electron Developers</span>
+          <!-- <span class="material-symbols-rounded">arrow_right_alt</span> -->
         </button>
-          </div>
-          <div class="navList font-bold mt-6">
-            <a href="#" class="hover:text-primary block m-3 py-3">Pricing</a>
-            <a href="#" class="hover:text-primary block m-3 py-3">Docs</a>
-            <a href="#" class="hover:text-primary block m-3 py-3">ChangeLog</a>
-            <a href="#" class="hover:text-primary block m-3 py-3">Blogs</a>
-            <a href="#" class="hover:text-primary block m-3 py-3">Login</a>
+      </div>
+    </div>
+  </nav>
 
-            <span class="h-[1px] bg-gray-700"></span>
-
-            <button class="flex w-full mt-6 items-center gap-2 px-6 py-4 rounded-lg font-bold hover:text-gray-500">
-              <img src="./assets/asset 1.svg">
-              <span>Electron Developers</span>
-              <!-- <span class="material-symbols-rounded">arrow_right_alt</span> -->
-          </button>
-
-          </div>
+  <!-- MAIN -->
+  <main>
+    <!-- HERO SECTION -->
+    <div id="hero" class="w-full min-h-fit bg-gradient-to-br from-purple-50 via-orange-50 to-transparent">
+      <div id="hero-container" class="max-w-4xl mx-auto px-6 pt-6 pb-32 flex flex-col sm:items-center sm:text-center">
+        <div id="virsion-text"
+          class="flex items-center justify-between gap-2 mt-6 w-fit border border-yellow-300 bg-yellow-50 rounded-lg px-3 py-1 sm:mt-10 shadow-md hover:cursor-default hover:shadow-lg hover:-translate-y-1 transition ease-linear duration-300 group">
+          <span class="block w-2 h-2 bg-yellow-400 border border-yellow-600 rounded-full"></span>
+          <p class="text-yellow-600 flex items-center justify-between gap-1 sm:gap-2">
+            v0.22.3
+            <span class="text-yellow-800 font-bold hidden sm:flex justify-between items-center">Find - in - page bug
+              fixes
+            </span>
+            <i
+              class="material-symbols-rounded text-yellow-600 group-hover:translate-x-1 transition ease-in duration-300 mt-0 sm:mt-1">arrow_right_alt</i>
+          </p>
         </div>
-     </nav>
-     
-     <!-- MAIN -->
-      <main>
+        <div id="hero-features"
+          class="hidden sm:flex items-center justify-center gap-8 text-gray-600 font-medium text-sm px-6 my-6">
+          <span class="flex items-center gap-2"><img src="./assets/asset 62.svg" />Code optional</span>
+          <span class="flex items-center gap-2"><img src="./assets/asset 63.svg" /> Drag & drop builder</span>
+          <span class="flex items-center gap-2"><img src="./assets/asset 64.svg" />Windows, Mac, Linux</span>
+        </div>
+        <h1 class="mt-4 text-4xl sm:text-6xl font-semibold font-heading leading-snug">
+          Web app to desktop app in minutes
+        </h1>
+        <p class="font-bold mt-4 text-gray-600 text-xl sm:text-2xl">
+          Take your web app codebase and transform it into a cross platform
+          desktop app with native functionality.
+        </p>
+        <div id="btn-container"
+          class="flex items-baseline justify-center flex-col sm:flex-row gap-3 mt-12 font-semibold">
+          <button id="btns-d" class="px-8 py-3 rounded-lg bg-blue-800 hover:bg-blue-600 text-white w-full sm:w-fit">
+            Download now
+          </button>
+          <button id="btns-r"
+            class="px-8 py-3 text-black border border-gray-400 rounded-lg hover:border-gray-700 w-full sm:w-fit">
+            Read docs
+          </button>
+        </div>
+      </div>
+    </div>
 
-        <!-- HERO SECTION -->
-         <div id="hero" class="w-full min-h-screen bg-gradient-to-br from-purple-50 via-orange-50 to-transparent">
-          <div id="hero-container" class="max-w-4xl mx-auto px-6 pt-6 pb-32 flex flex-col sm:items-center sm:text-center">
-            <div id="virsion-text" class="flex items-center justify-between gap-2 mt-6 w-fit border border-yellow-300 bg-yellow-50 rounded-lg px-3 py-1 sm:mt-10 shadow-md hover:cursor-default hover:shadow-lg hover:-translate-y-1 transition ease-linear duration-300 group">
-              <span class="block w-2 h-2 bg-yellow-400 border border-yellow-600 rounded-full"></span>
-              <p class="text-yellow-600 flex items-center justify-between gap-1 sm:gap-2">v0.22.3 <span class="text-yellow-800 font-bold hidden sm:flex justify-between items-center">Find - in - page bug fixes </span>
-              <i class="material-symbols-rounded text-yellow-600 group-hover:translate-x-1 transition ease-in duration-300 mt-0 sm:mt-1">arrow_right_alt</i>
-              </p>
-            </div>
-            <div id="hero-features" class="hidden sm:flex items-center justify-center gap-8 text-gray-600 font-medium text-sm px-6 my-6">
-              <spa class="flex items-center gap-2"><img src="./assets/asset 62.svg">Code optional</spa>
-              <spa class="flex items-center gap-2"><img src="./assets/asset 63.svg"> Drag & drop builder</spa>
-              <spa class="flex items-center gap-2"><img src="./assets/asset 64.svg">Windows, Mac, Linux</spa>
-            </div>
-            <h1 class="mt-4 text-4xl sm:text-6xl font-semibold font-heading leading-snug">Web app to desktop app in minutes</h1>
-            <p class="font-bold mt-4 text-gray-600 text-xl sm:text-2xl">Take your web app codebase and transform it into a cross platform desktop app with native functionality.</p>
-            <div id="btn-container" class="flex items-baseline justify-center flex-col sm:flex-row gap-3 mt-12 font-semibold ">
-              <button id="btns-d" class="px-8 py-3  rounded-lg bg-blue-800 hover:bg-blue-600 text-white w-full sm:w-fit" >Download now</button>
-              <button id="btns-r" class="px-8 py-3 text-black border border-gray-400 rounded-lg hover:border-gray-700 w-full sm:w-fit ">Read docs</button>
-            </div>
-          </div>
-         </div>
-      </main>
+    <!-- COMAPNIS -->
+    <div id="companis-section">
+      <span id="Conpanis-title" class="flex items-center justify-center gap-2 text-center font-bold text-xl">
+        <img class="translate-y-2" src="./assets/asset 2.svg" />
+        Apps powered by ToDesktop
+        <img class="translate-y-2 -scale-x-100" src="./assets/asset 2.svg" />
+      </span>
+      <div id="line-Group" class="overflow-hidden w-full">
+        <!-- RESTOF OTHER CODES IN JS FILE -->
+        <div id="companis-line-group1" class="allGrops -translate-x-48 transition-transform ease-linear"></div>
+        <div id="companis-line-group2" class="allGrops translate-x-36 transition-transform ease-linear"></div>
+        <div id="companis-line-group3" class="allGrops -translate-x-46 transition-transform ease-linear md:hidden">
+        </div>
+      </div>
+      <div class="h-[1000px]">
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>
